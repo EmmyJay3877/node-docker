@@ -14,7 +14,8 @@ jobs:
       - name: Install build dependencies
         run: |
           docker pull node:21-alpine3.17
-          docker run --rm -v $(pwd):/app -w /app node:21-alpine3.17 apk --no-cache add --virtual builds-deps build-base python
+          docker run --rm -v $(pwd):/app -w /app node:21-alpine3.17 apk update
+          docker run --rm -v $(pwd):/app -w /app node:21-alpine3.17 apk --no-cache add --virtual builds-deps build-base python3
       
       - name: Log in to Docker Hub
         uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a

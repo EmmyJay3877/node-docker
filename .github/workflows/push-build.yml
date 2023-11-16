@@ -10,6 +10,10 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v4
+
+      - name: Install build dependencies
+        run: |
+          docker run --rm -v $(pwd):/app -w /app node:21-alpine3.17 apk --no-cache add --virtual builds-deps build-base python
       
       - name: Log in to Docker Hub
         uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a

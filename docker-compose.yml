@@ -12,6 +12,7 @@ services:
 
   node-app:
     build: .
+    image: emmyjay387/node-app
     env_file:
       - ./.env
     depends_on:

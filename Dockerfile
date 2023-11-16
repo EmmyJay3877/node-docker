@@ -1,4 +1,5 @@
 FROM node:21-alpine3.17
+RUN apk --no-cache add --virtual builds-deps build-base python
 WORKDIR /app
 COPY package.json .
 ARG NODE_ENV

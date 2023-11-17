@@ -3,7 +3,7 @@ const corsOptions = require('../../../config/corsOptions');
 
 describe('corsOption', () => {
     it('should allow request from allowed origins', () => {
-        const origin = 'https://www.yoursite.com';
+        const origin = 'http://localhost:8000';
         const callback = jest.fn();
 
         corsOptions.origin(origin, callback);

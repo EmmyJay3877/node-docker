@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
 const connectDB = async () => {
-    // const uri = 'mongodb://localhost:27017/testdb';
-    const uri = 'mongodb://root:root@mongodb:27017/?authSource=admin';
+    const uri = 'mongodb://localhost:27017';
+    // const uri = 'mongodb://root:root@mongodb:27017/?authSource=admin';
     try {
         await mongoose.connect(uri, {
             useNewUrlParser: true,

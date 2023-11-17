@@ -18,6 +18,16 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+
+      - name: Wait for MongoDB to start
+        run: |
+          echo "Waiting for MongoDB to start..."
+          for i in {1..30}; do # Loop for a certain number of attempts
+            nc -z localhost 27017 && echo "MongoDB is available!" && exit 0
+            sleep 5  # Wait for 5 seconds before checking again
+          done
+          echo "MongoDB did not start in time."
+          
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:

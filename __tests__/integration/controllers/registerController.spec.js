@@ -61,10 +61,6 @@ describe('testing register endpoint(/register)', () => {
             .post('/register')
             .send(mockUser)
 
-        console.log(mockUser);
-
-        console.log(response.message);
-
         expect(response.status).toBe(201);
         expect(response.body.accessToken).toBeDefined();
     });

@@ -24,7 +24,7 @@ jest.mock('redis', (() => {
 
 jest.mock('./../../../config/dbConn', (() => jest.fn().mockReturnValue(true)));
 
-describe('testing logout endpoint(/logout)', () => {
+describe('testing register endpoint(/register)', () => {
     let mockData;
     let mockUser;
     let server;
@@ -60,6 +60,8 @@ describe('testing logout endpoint(/logout)', () => {
         const response = await supertest(app)
             .post('/register')
             .send(mockUser)
+
+        console.log(response);
 
         expect(response.status).toBe(201);
         expect(response.body.accessToken).toBeDefined();

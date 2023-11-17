@@ -61,7 +61,7 @@ describe('testing login endpoint(/login)', () => {
                 "password": mockUser.password,
             })
 
-        console.log(response)
+        console.log(response.message)
 
         expect(response.status).toBe(200);
         expect(response.body.accessToken).toBeDefined();

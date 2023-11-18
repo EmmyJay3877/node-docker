@@ -48,7 +48,6 @@ const handleJWTError = err => new customError('Invalid token, Please login.', 40
 const handleExpiredJWTError = err => new customError('Token has expired', 401);
 
 const errorHandler = (error, req, res, next) => {
-    console.log(error)
     error.statusCode = error.statusCode || 500
 
     if (process.env.NODE_ENV === 'development') devErrors(error, res);

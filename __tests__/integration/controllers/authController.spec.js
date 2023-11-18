@@ -50,21 +50,16 @@ describe('testing login endpoint(/login)', () => {
 
     it('should login a user', async () => {
 
-        try {
-            user = await User.create(mockUser);
+        user = await User.create(mockUser);
 
-            const response = await supertest(app)
-                .post('/login')
-                .send({
-                    "username": mockUser.username,
-                    "password": mockUser.password,
-                });
+        const response = await supertest(app)
+            .post('/login')
+            .send({
+                "username": mockUser.username,
+                "password": mockUser.password,
+            })
 
-            expect(response.status).toBe(200);
-            expect(response.body.accessToken).toBeDefined();
-        } catch (error) {
-            console.error('Error in test:', error);
-            throw error; // Rethrow the error to fail the test explicitly
-        }
+        expect(response.status).toBe(200);
+        expect(response.body.accessToken).toBeDefined();
     });
 });
